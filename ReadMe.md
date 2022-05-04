@@ -8,6 +8,8 @@ https://user-images.githubusercontent.com/73083810/166726290-7d442fe4-c816-4bab-
 <h2>Built with</h2>
 <ul>
   <li><a href="https://www.python.org/">Python</a></li>
-  <li><a href="url">Matmatplotlib</a></li>
-  <li><a href="url">PyQt5</a></li>
+  <li><a href="https://matplotlib.org/">Matmatplotlib</a></li>
+  <li><a href="https://pypi.org/project/PyQt5/">PyQt5</a></li>
+  <li><a href="https://realpython.com/python-testing/#:~:text=unittest%20has%20been%20built%20into,for%20writing%20and%20executing%20tests.">unittest</a></li>
 </ul>
+
