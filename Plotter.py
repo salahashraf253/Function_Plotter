@@ -23,12 +23,13 @@ class Plotter:
         plt.plot(x, y)
 
         # naming the x axis
-        plt.xlabel('x - axis')
+        plt.xlabel('X')
         # naming the y axis
-        plt.ylabel('y - axis')
+        plt.ylabel('F(x)')
 
         # giving a title to my graph
         plt.title(orginialEqu)
-
+        #add grid
+        plt.grid()
         # function to show the plot
         plt.show()
