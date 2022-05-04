@@ -1,13 +1,9 @@
-import sys
 import re
 import matplotlib
 from PyQt5.QtWidgets import QMessageBox
-from pyqtgraph.examples.GraphicsScene import clicked
 from Plotter import Plotter
+
 matplotlib.use('Qt5Agg')
-from PyQt5 import QtCore, QtGui, QtWidgets
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
-from matplotlib.figure import Figure
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -77,8 +73,10 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Enter maximum value for x :"))
         self.label_4.setText(_translate("MainWindow", "Enter minimum value for x :"))
         self.plotButton.setText(_translate("MainWindow", "Plot Graph"))
-        self.label_5.setText(_translate("MainWindow","<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Instructions</span></p><p>- Enter the function of x, like 5*x^3+2*x.</p><p>- The supported operators: + - / * ^.</p><p><br/></p></body></html>"))
+        self.label_5.setText(_translate("MainWindow",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Instructions</span></p><p>- Enter the function of x, like 5*x^3+2*x.</p><p>- The supported operators: + - / * ^.</p><p><br/></p></body></html>"))
 
+    # End of UI
     def showErrorMessage(self, errorMessage):
         QMessageBox.about(self.centralwidget, "Error", errorMessage)
 
@@ -86,10 +84,11 @@ class Ui_MainWindow(object):
         try:
             int(value)
             return True
-        except :
-            return  False
-    def isValidRange(self,minValue,maxValue):
-        return  minValue <= maxValue
+        except:
+            return False
+
+    def isValidRange(self, minValue, maxValue):
+        return minValue <= maxValue
 
     def validateEquation(self, equation):
         equation = equation.replace(" ", "")
@@ -104,36 +103,39 @@ class Ui_MainWindow(object):
             return False
         func = equation.replace('^', '**').replace('X', 'x')
         return func
+
     def plot(self, equation, maxValue, minValue):
         try:
-            orginialEqu=equation
+            orginialEqu = equation
             # validate Function
             ret = self.validateEquation(equation)
             if ret is not False:
-                print("Not False")
                 equation = ret
             else:
                 self.showErrorMessage(ret)
                 return
+            #validate max value
             if self.validateNumbers(maxValue) is False:
                 self.showErrorMessage("Please Enter an integer number for maximum value")
                 return
+            #validate min value
             if self.validateNumbers(minValue) is False:
                 self.showErrorMessage("Please Enter an integer number for minimum value")
                 return
-            minValue=int(minValue)
-            maxValue=int(maxValue)
-            if self.isValidRange(minValue,maxValue) is False:
+            minValue = int(minValue)
+            maxValue = int(maxValue)
+            #validate range
+            if self.isValidRange(minValue, maxValue) is False:
                 self.showErrorMessage("Please Enter valid range")
                 return
             p = Plotter()
-            print("Hello")
-            p.plot(minValue, maxValue, equation,orginialEqu)
+            p.plot(minValue, maxValue, equation, orginialEqu)
         except ValueError as err:
             print(err.args[0])
             return
 
 
+# main function
 if __name__ == "__main__":
     import sys
 
