@@ -93,14 +93,15 @@ class Ui_MainWindow(object):
     def validateEquation(self, equation):
         equation = equation.replace(" ", "")
         if equation == "":
-            self.showErrorMessage("The Functon Field is Empty, Please Enter it")
-            return False
+            # self.showErrorMessage("The Functon Field is Empty, Please Enter it")
+            return "The Functon Field is Empty, Please Enter it"
 
         toMatch = "(-)?(\d+$)|((-)?(\d+[+-])?(\d+[\*\/])?[xX](\^\d+)?([+-](\d+)?([\*\/][xX](\^\d+)?)?)*)*$"
         matched = re.match(toMatch, equation)
         if not matched:
-            self.showErrorMessage("Invalid Function")
-            return False
+            # self.showErrorMessage("Invalid Function")
+            return "Invalid Function"
+            # return False
         func = equation.replace('^', '**').replace('X', 'x')
         return func
 
@@ -109,11 +110,11 @@ class Ui_MainWindow(object):
             orginialEqu = equation
             # validate Function
             ret = self.validateEquation(equation)
-            if ret is not False:
-                equation = ret
-            else:
+            if ret == "The Functon Field is Empty, Please Enter it" or ret == "Invalid Function":
                 self.showErrorMessage(ret)
                 return
+            else:
+                equation=ret
             #validate max value
             if self.validateNumbers(maxValue) is False:
                 self.showErrorMessage("Please Enter an integer number for maximum value")
