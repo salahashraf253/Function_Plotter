@@ -114,18 +114,18 @@ class Ui_MainWindow(object):
                 self.showErrorMessage(ret)
                 return
             else:
-                equation=ret
-            #validate max value
+                equation = ret
+            # validate max value
             if self.validateNumbers(maxValue) is False:
                 self.showErrorMessage("Please Enter an integer number for maximum value")
                 return
-            #validate min value
+            # validate min value
             if self.validateNumbers(minValue) is False:
                 self.showErrorMessage("Please Enter an integer number for minimum value")
                 return
             minValue = int(minValue)
             maxValue = int(maxValue)
-            #validate range
+            # validate range
             if self.isValidRange(minValue, maxValue) is False:
                 self.showErrorMessage("Please Enter valid range")
                 return
