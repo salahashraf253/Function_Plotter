@@ -1,25 +1,23 @@
 import matplotlib.pyplot as plt
 
-
 class Plotter:
     def __init__(self):
-        print("gd")
 
-    def FuncSubstitute(self, x, equation):
+    def calcYCooridante(self, x, equation):
         x=x
-        val = eval(equation)  # built in function to substitute easily
+        val = eval(equation)
         return val
 
-    def GenerateFunc(self, minValue, maxValue,equation):
+    def calcCooridantes(self, minValue, maxValue, equation):
         x_Coor = []
         y_Coor = []
         for i in range(minValue, maxValue):
             x_Coor.append(i)
-            y_Coor.append(self.FuncSubstitute(i,equation))
+            y_Coor.append(self.calcYCooridante(i, equation))
         return x_Coor, y_Coor
 
     def plot(self, minValue, maxValue, equation,orginialEqu):
-        x, y = self.GenerateFunc(minValue, maxValue,equation)
+        x, y = self.calcCooridantes(minValue, maxValue, equation)
 
         # plotting the points
         plt.plot(x, y)
