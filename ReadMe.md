@@ -39,9 +39,20 @@ https://user-images.githubusercontent.com/73083810/166726290-7d442fe4-c816-4bab-
 <h3 href="#Running">Running</h3>
 <ol>
   <li><strong><em>Run the Function Plotter </em></strong>
-       <blockquote>$python MainWindow.py </blockquote>
+       <blockquote>$python main.py </blockquote>
   </li>
 </ol>
 <h1>Screenshots</h1>
 <h2>Sample Run of Function Plotter</h2>
 <img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/1.png">
+<h2>Validation of inputs</h2>
+<h3>Validation of function</h3>
+<img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/4.png">
+<br>
+<img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/5.png">
+<h3>Validation of Range of x</h3>
+<img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/6.png">
+<br>
+<img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/7.png">
+<br>
+<img src="https://github.com/salahashraf253/Function_Plotter/blob/master/Screenshots/8.png">
