@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 class Plotter:
     def __init__(self):
-
+        print("Hello in plotter class")
     def calcYCooridante(self, x, equation):
         x=x
         val = eval(equation)
